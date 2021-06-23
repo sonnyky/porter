@@ -1,7 +1,7 @@
 from .tracking_state import TrackingState
 from .reid_state import ReidState
 from .registration_state import RegistrationState
-from src.motors.motor import MotorController
+from porter.motors.motor import MotorController
 
 
 class StateManager:

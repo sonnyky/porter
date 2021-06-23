@@ -8,12 +8,12 @@ import depthai as dai
 import numpy as np
 import time
 import math
-from engine.track.Reidentifier import Reidentifier
-from engine.spatial.spatial import Spatial
-from engine.track.tracker import Tracker
-from engine.stream.streamer import Streamer
-from state.state_manager import StateManager
-from engine.pose.pose_recognizer import PoseRecognizer
+from porter.engine.track.Reidentifier import Reidentifier
+from porter.engine.spatial.spatial import Spatial
+from porter.engine.track.tracker import Tracker
+from porter.engine.stream.streamer import Streamer
+from porter.state.state_manager import StateManager
+from porter.engine.pose.pose_recognizer import PoseRecognizer
 
 
 def frame_norm(frame, bbox):

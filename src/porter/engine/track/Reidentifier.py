@@ -8,7 +8,7 @@ class Reidentifier:
         self.reid_in.setStreamName("reid_in")
         self.reid_nn = pipeline.createNeuralNetwork()
         self.reid_nn.setBlobPath(
-            str(Path("src/models/person-reidentification-retail-0277.blob").resolve().absolute()))
+            str(Path("src/porter/models/person-reidentification-retail-0277.blob").resolve().absolute()))
 
         # Decrease threads for reidentification
         self.reid_nn.setNumInferenceThreads(1)

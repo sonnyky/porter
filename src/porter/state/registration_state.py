@@ -1,7 +1,7 @@
 from math import atan2
 import cv2
 from .state import State
-from src.utils import mediapipe_utils as mpu
+from porter.utils import mediapipe_utils as mpu
 import depthai as dai
 import numpy as np
 

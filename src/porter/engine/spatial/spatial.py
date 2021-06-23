@@ -17,7 +17,7 @@ class Spatial:
         self.depthQueue = None
 
         self.spatialDetectionNetwork.setBlobPath(
-            str(Path("src/models/mobilenet-ssd.blob").resolve().absolute()))
+            str(Path("src/porter/models/mobilenet-ssd.blob").resolve().absolute()))
 
         self.stereo.setOutputDepth(True)
         self.stereo.setConfidenceThreshold(255)

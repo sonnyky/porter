@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(porter_pkg)
+project(porter)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -204,6 +204,6 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
-catkin_install_python(PROGRAMS scripts/main.py scripts/listener.py
+catkin_install_python(PROGRAMS scripts/main.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
