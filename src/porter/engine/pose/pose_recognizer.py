@@ -5,11 +5,11 @@ class PoseRecognizer:
     def __init__(self, pipeline):
         self.pipeline = pipeline
         self.pd_nn = pipeline.createNeuralNetwork()
-        self.pd_nn.setBlobPath(str(Path("src/porter/models/pose/pose_detection.blob").resolve().absolute()))
+        self.pd_nn.setBlobPath(str(Path("models/pose/pose_detection.blob").resolve().absolute()))
 
         # create landmark model here too for now
         self.lm_nn = pipeline.createNeuralNetwork()
-        self.lm_nn.setBlobPath(str(Path("src/porter/models/pose/pose_landmark_lite.blob").resolve().absolute()))
+        self.lm_nn.setBlobPath(str(Path("models/pose/pose_landmark_lite.blob").resolve().absolute()))
         self.lm_nn.setNumInferenceThreads(1)
 
         self.pd_in = pipeline.createXLinkIn()

@@ -14,8 +14,6 @@ from porter.engine.track.tracker import Tracker
 from porter.engine.stream.streamer import Streamer
 from porter.state.state_manager import StateManager
 from porter.engine.pose.pose_recognizer import PoseRecognizer
-from porter.publisher.publisher import Publisher
-import rospy
 
 def frame_norm(frame, bbox):
     return (np.clip(np.array(bbox), 0, 1) * np.array([*frame.shape[:2], *frame.shape[:2]])[::-1]).astype(int)
@@ -63,8 +61,6 @@ Reidentifier(pipeline)
 
 trackedPeople = {}
 next_id = 0
-
-pb = Publisher()
 
 # Pipeline defined, now the device is connected
 with dai.Device(pipeline) as device:
@@ -130,15 +126,6 @@ with dai.Device(pipeline) as device:
         cv2.putText(frame, "NN fps: {:.2f}".format(fps), (2, frame.shape[0] - 4), cv2.FONT_HERSHEY_TRIPLEX, 0.4, color)
 
         cv2.imshow("tracker", frame)
-
-        try:
-            points = []
-            pt = [10.0, 12.5, 14.2]
-            points.append(pt)
-            pb.publish(points)
-        except rospy.ROSInterruptException:
-            pass
-
 
         if cv2.waitKey(1) == ord('q'):
             break
