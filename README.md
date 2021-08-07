@@ -16,6 +16,7 @@ Currently I'm developing this as a proof of concept so I'm using a small and che
 * Python 3
 * OpenCV
 * GPIO library
+* Raspbian Buster
 
 # Software architecture
 ### Overview
