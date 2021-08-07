@@ -15,7 +15,6 @@ from porter.engine.stream.streamer import Streamer
 from porter.state.state_manager import StateManager
 from porter.engine.pose.pose_recognizer import PoseRecognizer
 
-
 def frame_norm(frame, bbox):
     return (np.clip(np.array(bbox), 0, 1) * np.array([*frame.shape[:2], *frame.shape[:2]])[::-1]).astype(int)
 
@@ -62,7 +61,8 @@ Reidentifier(pipeline)
 
 trackedPeople = {}
 next_id = 0
-# Pipeline defined, now the device is connected to
+
+# Pipeline defined, now the device is connected
 with dai.Device(pipeline) as device:
     # Start the pipeline
     device.startPipeline()
