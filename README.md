@@ -38,4 +38,4 @@ The robot has several states that defines how it responds to input data.
 * Reidentification state waits until it sees a person (or persons) and compare the feature vector(s) to the one saved during Registration state. If the same person is identified the robot goes back to Tracking state.
 
 # Future work
-Currently there is only a basic barebones architecture and more features are needed such as proper person registration flow, condition to end tracking, obstacle detection and path planning etc. The roadmap will be managed as Github issues so feel free to add ideas into it!
+Currently there is only a basic barebones architecture and more features are needed such as condition to end tracking, obstacle detection and path planning etc. The roadmap will be managed as Github issues so feel free to add ideas into it!
