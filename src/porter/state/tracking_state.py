@@ -1,6 +1,8 @@
 from .state import State
 import depthai as dai
 import numpy as np
+from porter.publisher.publisher import Publisher
+import rospy
 
 
 class TrackingState(State):
@@ -12,6 +14,7 @@ class TrackingState(State):
         self.lost_track_counter = 0
         self.sm = manager
         self.mc = self.sm.GetMotorController()
+        self.pb = Publisher()
 
     def cos_dist(self, a, b):
         return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
@@ -29,7 +32,16 @@ class TrackingState(State):
             elif t.id == trackingId and t.status == dai.Tracklet.TrackingStatus.TRACKED:
                 # move motor to move robot to target
                 self.lost_track_counter = 0
-                self.mc.directionControl(t.spatialCoordinates.x, t.spatialCoordinates.y, t.spatialCoordinates.z)
+                #self.mc.directionControl(t.spatialCoordinates.x, t.spatialCoordinates.y, t.spatialCoordinates.z)
+                
+                try:
+                    points = []
+                    pt = [t.spatialCoordinates.x, t.spatialCoordinates.y, t.spatialCoordinates.z]
+                    points.append(pt)
+                    self.pb.publish(points)
+                except rospy.ROSInterruptException:
+                    pass
+
             elif t.id == trackingId and t.status == dai.Tracklet.TrackingStatus.LOST:
                 self.lost_track_counter += 1
 
